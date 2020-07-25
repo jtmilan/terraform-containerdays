@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket = "terraform-state-containerdays-demo"
+    bucket = "terraform-state-containerdays-milantech-dev"
     key    = "eu-west-3/vpc1.tfstate"
     region = "eu-west-3"
 

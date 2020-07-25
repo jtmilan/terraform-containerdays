@@ -1,4 +1,3 @@
-### First part
 resource "aws_kms_key" "kms_drone" {
   description             = "KMS Key used to encrypt / decrypt drone secrets"
   deletion_window_in_days = 30
@@ -12,8 +11,6 @@ resource "aws_kms_alias" "kms_alias_drone" {
   name          = "alias/drone-containerdays"
   target_key_id = aws_kms_key.kms_drone.key_id
 }
-
-### Second part
 
 resource "aws_iam_role" "role_drone" {
   name               = "DroneTerraformContainerDays"
@@ -41,7 +38,7 @@ data "aws_iam_policy_document" "assume_policy_drone" {
 data "aws_kms_secrets" "drone" {
   secret {
     name    = "external_id"
-    payload = "AQICAHj9KV3Z/210SeUw0IIViLtnqJ7qYUZ5R0pURVFs0GMNCQHiQWUSabftbhGH7ZEkMLEMAAAAhzCBhAYJKoZIhvcNAQcGoHcwdQIBADBwBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDB2C+8nNbEQXL/pbQwIBEIBD4UUX9gQh3OLulGQeoVP7GwcAKwSAwuQHknKTvqfpjvPBT0mQtwztzMUXXyoZX+dSChJllMC2EF+BsNhnoKrN+7zfBA=="
+    payload = "AQICAHj9wB9l7YM8LnCBcsi941HLWygM8jn4FSjv83ggZbprBwFN/I4DoOzgfdOXN0YBoskuAAAAhzCBhAYJKoZIhvcNAQcGoHcwdQIBADBwBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDD+KjBrRGWVAmGa7sAIBEIBDkhghfxiyRVg3BIm+w39qd/wIaXtku9tngUh3oob/JoDCXT18Bnnk/VuUR7FyRJTnyYepJxW0m1ZoeKyFt++CmNTGlg=="
 
     context = {
         foo = "bar"
@@ -50,7 +47,7 @@ data "aws_kms_secrets" "drone" {
 
   secret {
     name    = "trusted_account_arn"
-    payload = "AQICAHj9KV3Z/210SeUw0IIViLtnqJ7qYUZ5R0pURVFs0GMNCQFBl2oqdKxvauivPp3YBA0gAAAAhTCBggYJKoZIhvcNAQcGoHUwcwIBADBuBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDN7PZ7LYAntbC7qX/wIBEIBBfa/R+zIXwbJwRQU7sLwAKovIaxHuINZP1JbUbFGsEDHJ5zFEOcjflUyrX2L7KkJowHqAEVuOs9o5eOKMG9dNIAg="
+    payload = "AQICAHj9wB9l7YM8LnCBcsi941HLWygM8jn4FSjv83ggZbprBwGbCgdjVIbzAK8ecmA8yyqNAAAAhTCBggYJKoZIhvcNAQcGoHUwcwIBADBuBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDP58mgx2kWKxGdyGRwIBEIBBgN8sbXSNkR9on9J7NzDo7Z5PoEW4fvnxk+m7v+HpDznndQk+SoXZUioXmKppU6FTJuAt1AzRczFh/WKNCDrGDcc="
 
     context = {
       foo = "bar"

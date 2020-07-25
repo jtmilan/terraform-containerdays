@@ -2,7 +2,7 @@ terraform {
   required_version = ">= 0.12"
 
   backend "s3" {
-    bucket = "terraform-state-containerdays-demo"
+    bucket = "terraform-state-containerdays-milantech-prod"
     key    = "eu-west-3/default.tfstate"
     region = "eu-west-3"
 
