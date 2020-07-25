@@ -33,6 +33,9 @@ aws_credentials: &aws_credentials
   - aws configure --profile $TF_ENV-$TF_REGION set credential_source Ec2InstanceMetadata
   - aws configure --profile $TF_ENV-$TF_REGION set external_id $ASSUME_ROLE_EXTERNAL_ID
   - aws configure --profile $TF_ENV-$TF_REGION list
+  - echo $ASSUME_ROLE_EXTERNAL_ID 
+  - echo $TF_ENV-$TF_REGION
+  - echo "arn:aws:iam::$AWS_ACCOUNT_ID:role/DroneTerraformContainerDays"
 
 terraform: &terraform
   image: alpine:3
