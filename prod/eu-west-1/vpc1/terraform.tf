@@ -1,4 +1,6 @@
 terraform {
+  required_version = ">= 0.12"
+
   backend "s3" {
     bucket = "terraform-state-containerdays-demo"
     key    = "eu-west-3/vpc1.tfstate"
@@ -7,10 +9,6 @@ terraform {
     // workaround for https://github.com/terraform-providers/terraform-provider-aws/issues/5018
     skip_metadata_api_check = true
   }
-}
-
-terraform {
-  required_version = ">= 0.12"
 }
 
 provider "aws" {
