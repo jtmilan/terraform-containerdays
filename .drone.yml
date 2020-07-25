@@ -87,7 +87,7 @@ steps:
   when:
     paths:
       include:
-      - dev/eu-west-1/**
+      - dev/eu-west-1/vpc1/**
 
 - <<: *aws_credentials
   name: prod_eu-west-1_aws_credentials
@@ -101,7 +101,7 @@ steps:
   when:
     paths:
       include:
-      - prod/eu-west-1/**
+      - prod/eu-west-1/vpc1/**
 
 - <<: *terraform
   name: dev_eu-west-1_terraform_${DRONE_BUILD_EVENT}
