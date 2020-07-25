@@ -3,7 +3,7 @@ terraform {
     bucket = "terraform-state-containerdays-milantech-dev"
     key    = "eu-west-3/vpc1.tfstate"
     region = "eu-west-3"
-
+    
     // workaround for https://github.com/terraform-providers/terraform-provider-aws/issues/5018
     skip_metadata_api_check = true
   }
