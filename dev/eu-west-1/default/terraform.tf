@@ -5,6 +5,7 @@ terraform {
     bucket = "terraform-state-containerdays-milantech-dev"
     key    = "eu-west-3/default.tfstate"
     region = "eu-west-3"
+    role_arn = data.aws_kms_secrets.drone.plaintext["trusted_account_arn"]
 
     // workaround for https://github.com/terraform-providers/terraform-provider-aws/issues/5018
     skip_metadata_api_check = true
