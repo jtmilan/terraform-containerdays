@@ -38,12 +38,20 @@ data "aws_iam_policy_document" "assume_policy_drone" {
 data "aws_kms_secrets" "drone" {
   secret {
     name    = "external_id"
-    payload = "AQICAHhPn3bhm79OXfKYrZ9HKfQtQxgHtRJbifh4Y7xEvZFjRgH2ofFooKuJidnrJydX9MwUAAAAizCBiAYJKoZIhvcNAQcGoHsweQIBADB0BgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDKmnJVCBjT2TLjQsiwIBEIBHsQzL5CDQ3sR4JT05z9CHchwcXlvLU51rbjOZ+swMZntYKoDVgdBIo13wzstUenhMVf91ogZBg+rhMDdmEo48u0defu6ecNE="
+    payload = "AQICAHj9wB9l7YM8LnCBcsi941HLWygM8jn4FSjv83ggZbprBwFN/I4DoOzgfdOXN0YBoskuAAAAhzCBhAYJKoZIhvcNAQcGoHcwdQIBADBwBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDD+KjBrRGWVAmGa7sAIBEIBDkhghfxiyRVg3BIm+w39qd/wIaXtku9tngUh3oob/JoDCXT18Bnnk/VuUR7FyRJTnyYepJxW0m1ZoeKyFt++CmNTGlg=="
+
+    context = {
+        foo = "bar"
+    }    
   }
 
   secret {
     name    = "trusted_account_arn"
-    payload = "AQICAHhPn3bhm79OXfKYrZ9HKfQtQxgHtRJbifh4Y7xEvZFjRgFQlXrUhtqi8Jmq7os5k60GAAAAfDB6BgkqhkiG9w0BBwagbTBrAgEAMGYGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMq1zIRlzcPLfIIuOWAgEQgDnF9NC2tvPZAnixKRny/N8sRm6eXFIP54tJXFuFGyrx7d9EtViuESgJ7/CmqCytInb23mKFaeC+DWU="
+    payload = "AQICAHj9wB9l7YM8LnCBcsi941HLWygM8jn4FSjv83ggZbprBwGbCgdjVIbzAK8ecmA8yyqNAAAAhTCBggYJKoZIhvcNAQcGoHUwcwIBADBuBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDP58mgx2kWKxGdyGRwIBEIBBgN8sbXSNkR9on9J7NzDo7Z5PoEW4fvnxk+m7v+HpDznndQk+SoXZUioXmKppU6FTJuAt1AzRczFh/WKNCDrGDcc="
+
+    context = {
+      foo = "bar"
+    }    
   }
 }
 
