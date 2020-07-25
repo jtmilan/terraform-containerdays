@@ -32,7 +32,7 @@ aws_credentials: &aws_credentials
   - aws configure --profile $TF_ENV-$TF_REGION set region $TF_REGION
   - aws configure --profile $TF_ENV-$TF_REGION set credential_source Ec2InstanceMetadata
   - aws configure --profile $TF_ENV-$TF_REGION set external_id $ASSUME_ROLE_EXTERNAL_ID
-  - aws configure list
+  - aws configure --profile $TF_ENV-$TF_REGION list
 
 terraform: &terraform
   image: alpine:3
