@@ -102,20 +102,20 @@ steps:
       include:
       - prod/eu-west-1/**
 
-- <<: *terraform
-  name: dev_eu-west-1_terraform_${DRONE_BUILD_EVENT}
-  environment:
-    # workaround for https://github.com/terraform-providers/terraform-provider-aws/issues/5018
-    AWS_METADATA_URL: http://localhost/not/existent/url
-    # workaround for https://github.com/hashicorp/aws-sdk-go-base/issues/7
-    AWS_SDK_LOAD_CONFIG: 1
-    AWS_PROFILE: dev-eu-west-1
-    TF_ENV: dev
-    TF_REGION: eu-west-1
-  when:
-    paths:
-      include:
-      - dev/eu-west-1/**
+# - <<: *terraform
+#   name: dev_eu-west-1_terraform_${DRONE_BUILD_EVENT}
+#   environment:
+#     # workaround for https://github.com/terraform-providers/terraform-provider-aws/issues/5018
+#     AWS_METADATA_URL: http://localhost/not/existent/url
+#     # workaround for https://github.com/hashicorp/aws-sdk-go-base/issues/7
+#     AWS_SDK_LOAD_CONFIG: 1
+#     AWS_PROFILE: dev-eu-west-1
+#     TF_ENV: dev
+#     TF_REGION: eu-west-1
+#   when:
+#     paths:
+#       include:
+#       - dev/eu-west-1/**
 
 - <<: *terraform
   name: prod_eu-west-1_terraform_${DRONE_BUILD_EVENT}
