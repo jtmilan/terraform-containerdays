@@ -1,12 +1,16 @@
 terraform {
   backend "s3" {
-    bucket = "terraform-state-containerdays-demoprod"
+    bucket = "terraform-state-containerdays-demo"
     key    = "eu-west-3/default.tfstate"
     region = "eu-west-3"
 
     // workaround for https://github.com/terraform-providers/terraform-provider-aws/issues/5018
     skip_metadata_api_check = true
   }
+}
+
+terraform {
+  required_version = ">= 0.12"
 }
 
 provider "aws" {
