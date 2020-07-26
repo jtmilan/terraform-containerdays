@@ -23,22 +23,15 @@ volumes:
   temp: {}
 
 aws_credentials: &aws_credentials
-  image: amazon/aws-cli:2.0.34
+  image: amazon/aws-cli:2.0.31
   volumes:
   - name: dot-aws
     path: /root/.aws
-  environment:
-    ASSUME_ROLE_EXTERNAL_ID:
-      from_secret: assume_role_external_id
-    AWS_ACCOUNT_ID:
-      from_secret: demo_account_id
   commands:
-  - aws configure set region eu-west-1 --profile $TF_ENV-$TF_REGION
   - aws configure --profile $TF_ENV-$TF_REGION set role_arn "arn:aws:iam::$AWS_ACCOUNT_ID:role/DroneTerraformContainerDays"
   - aws configure --profile $TF_ENV-$TF_REGION set region $TF_REGION
-  - aws configure --profile $TF_ENV-$TF_REGION set external_id $ASSUME_ROLE_EXTERNAL_ID
   - aws configure --profile $TF_ENV-$TF_REGION set credential_source Ec2InstanceMetadata
-  - aws configure --profile $TF_ENV-$TF_REGION list
+  - aws configure --profile $TF_ENV-$TF_REGION set external_id $ASSUME_ROLE_EXTERNAL_ID
 
 terraform: &terraform
   image: alpine:3
@@ -63,7 +56,6 @@ terraform: &terraform
         terraform apply -auto-approve
       fi
     done
-
 steps:
 
 - name: files_changed
@@ -80,7 +72,6 @@ steps:
         esac
       done
     done
-
 - <<: *aws_credentials
   name: dev_eu-west-1_aws_credentials
   environment:
@@ -93,7 +84,7 @@ steps:
   when:
     paths:
       include:
-      - dev/eu-west-1/vpc1/**
+      - dev/eu-west-1/**
 
 - <<: *aws_credentials
   name: prod_eu-west-1_aws_credentials
@@ -107,7 +98,7 @@ steps:
   when:
     paths:
       include:
-      - prod/eu-west-1/vpc1/**
+      - prod/eu-west-1/**
 
 - <<: *terraform
   name: dev_eu-west-1_terraform_${DRONE_BUILD_EVENT}
