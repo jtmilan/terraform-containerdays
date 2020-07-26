@@ -79,7 +79,7 @@ steps:
     ASSUME_ROLE_EXTERNAL_ID:
       from_secret: assume_role_external_id
     AWS_ACCOUNT_ID:
-      from_secret: demo_account_id
+      from_secret: dev_account_id
     TF_ENV: dev
     TF_REGION: eu-west-1
   when:
