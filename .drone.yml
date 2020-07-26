@@ -23,7 +23,7 @@ volumes:
   temp: {}
 
 aws_credentials: &aws_credentials
-  image: amazon/aws-cli:2.0.31
+  image: amazon/aws-cli:2.0.34
   volumes:
   - name: dot-aws
     path: /root/.aws
