@@ -47,7 +47,7 @@ data "aws_kms_secrets" "drone" {
 
   secret {
     name    = "trusted_account_arn"
-    payload = "AQICAHj9wB9l7YM8LnCBcsi941HLWygM8jn4FSjv83ggZbprBwFgOk/n15jEnp5h23464N9zAAAAzjCBywYJKoZIhvcNAQcGoIG9MIG6AgEAMIG0BgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDJOBSwUJFpTrlztzwQIBEICBhu4UqpaxXPE5wnA4e6E48gb+Zd91rVfh+0F1GR4n2LRGMt+lu0LuM2BXdQi2aMRPRWaN/tg8k6C3RuW9iBqRlqLf9fBHJOGykAX5TKemHLuZINMqCGtoqboz2Kx6SU+AY7RaYf8r9l460a3QAy0UmTUdkdrvsZGEuIP7A5Tza57jTLwd8d7e"
+    payload = "AQICAHj9wB9l7YM8LnCBcsi941HLWygM8jn4FSjv83ggZbprBwHm6znLo3UhL1Fzb61dxnNKAAAApTCBogYJKoZIhvcNAQcGoIGUMIGRAgEAMIGLBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDEGqhrOPtJJgm+PC/wIBEIBeEgLkco1ohUHs1hgad5+zpKEzMLc0aiVYSvoT/ZVAtFT5xp7iipCS5gYQOnwTzh96NjAWpmaa6a/YAn72yOTKST4FluRNDpif/bVyf5ywFKLcx694gGxTQie3lGcOhA=="
 
     context = {
       foo = "bar"
